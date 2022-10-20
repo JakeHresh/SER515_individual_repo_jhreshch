@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
-
+//
 public class Facade {
 	public static final Scanner scan = new Scanner(System.in);
 
@@ -164,6 +164,7 @@ public class Facade {
 	public void createProductList() {
 		this.theProductList = new ClassProductList();
 		this.theProductList.product = new ArrayList<Product>();
+		this.theProductList.productIterator = new ProductIterator();
 		boolean loop = true;
 		while(loop)
 		{

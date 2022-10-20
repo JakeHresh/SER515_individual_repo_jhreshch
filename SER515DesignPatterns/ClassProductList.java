@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 public class ClassProductList extends ArrayList {
 
-	private ReminderVisitor reminderVisitor;
+	public ReminderVisitor reminderVisitor;
 
-	private ProductIterator productIterator;
+	public ProductIterator productIterator;
 
 	//private ProductIterator productIterator;
 

@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Main {
+    public static final Scanner scan = new Scanner(System.in);
     public static void main(String args[]) {
         System.out.println("Hello!");
         Facade facade = new Facade(0, null, 0, null, null);
@@ -11,5 +14,40 @@ public class Main {
             login = facade.login();
         }
         facade.createProductList();
+        // Below acts as the main loop.
+        while(true)
+        {
+            // Use Product Iterator to Display Class Product List or Use Offering Iterator to Display Trading List
+            // To Select Product from List, start with Reminder, which creates a Node Visitor.
+            // Node Visitor has a Reminder Visitor child.
+            // Facade's Class Product List Accepts Reminder Visitor.
+            // Reminder Visitor then Visits Product or Trading
+            System.out.println("What would you like to do? (Select option by number)");
+            System.out.println("1. Add Trading (INCOMPLETE)");
+            System.out.println("2. View Trading (INCOMPLETE)");
+            System.out.println("3. Decide Bidding (INCOMPLETE)");
+            System.out.println("4. Discuss Bidding (INCOMPLETE)");
+            System.out.println("5. Submit Bidding (INCOMPLETE)");
+            System.out.println("6. Select Product (INCOMPLETE)"); // This will trigger the question "What product would you like to select?" and display all products. After product is selected, Product Menu will be built
+            String decision = scan.nextLine();
+            if(decision.equals("1")){
+
+            }
+            if(decision.equals("2")){
+
+            }
+            if(decision.equals("3")){
+
+            }
+            if(decision.equals("4")){
+
+            }
+            if(decision.equals("5")){
+
+            }
+            if(decision.equals("6")){
+                
+            }
+        }
     }
 }

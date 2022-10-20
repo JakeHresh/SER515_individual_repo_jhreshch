@@ -4,6 +4,8 @@ public abstract class Person {
 
 	private ProductMenu productMenu;
 
+	public String personName;
+
 	public abstract void showMenu();
 
 	public void showAddButton() {

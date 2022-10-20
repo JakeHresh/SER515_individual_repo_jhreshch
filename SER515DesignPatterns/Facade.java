@@ -32,7 +32,42 @@ public class Facade {
 			System.out.println("Hello buyer!");
 			this.UserType = 0;
 			this.thePerson = new Buyer();
-			// prompt user for login credentials, then read the buyer text file to see if it matches.
+			boolean loop = true;
+			while(loop)
+			{
+				// prompt user for login credentials, then read the buyer text file to see if it matches.
+				System.out.println("Please provide your username");
+				String username = scan.nextLine();
+				System.out.println("Please provide your password");
+				String password = scan.nextLine();
+				String loginCheck = username + ":" + password;
+
+				System.out.println("FOR THE GRADER: Please provide the path to the Buyer Info file for logging in. MAKE SURE THERE ARE NO SPACES");
+				System.out.println("e.g. \"C:\\\\Users\\\\jakey\\\\Desktop\\\\BuyerInfo.txt\"");
+				String in = scan.nextLine();
+				try {
+					File file = new File(in);
+					Scanner filescan = new Scanner(file);
+					while(filescan.hasNextLine())
+					{
+						//this.theProductList.product.add(new Product(this.theProductList, null, filescan.nextLine()));
+						if(loginCheck.equals(filescan.nextLine()))
+						{
+							loop = false;
+							System.out.println("Welcome!");
+							this.thePerson.personName = loginCheck;
+						}
+					}
+				}
+				catch(Exception e) {
+					System.out.println(e);
+					System.out.println("Path not found. MAKE SURE THERE ARE NO SPACES. Try again.");
+				}
+				if(loop)
+				{
+					System.out.println("Buyer login doesn't match records. Try again.");
+				}
+			}
 			return true;
 		}
 		if(userInput.equals("1"))
@@ -40,7 +75,42 @@ public class Facade {
 			System.out.println("Hello seller!");
 			this.UserType = 1;
 			this.thePerson = new Seller();
-			// prompt user for login credentials, then read the seller text file to see if it matches.
+			boolean loop = true;
+			while(loop)
+			{
+				// prompt user for login credentials, then read the seller text file to see if it matches.
+				System.out.println("Please provide your username");
+				String username = scan.nextLine();
+				System.out.println("Please provide your password");
+				String password = scan.nextLine();
+				String loginCheck = username + ":" + password;
+
+				System.out.println("FOR THE GRADER: Please provide the path to the Seller Info file for logging in. MAKE SURE THERE ARE NO SPACES");
+				System.out.println("e.g. \"C:\\\\Users\\\\jakey\\\\Desktop\\\\SellerInfo.txt\"");
+				String in = scan.nextLine();
+				try {
+					File file = new File(in);
+					Scanner filescan = new Scanner(file);
+					while(filescan.hasNextLine())
+					{
+						//this.theProductList.product.add(new Product(this.theProductList, null, filescan.nextLine()));
+						if(loginCheck.equals(filescan.nextLine()))
+						{
+							loop = false;
+							System.out.println("Welcome!");
+							this.thePerson.personName = loginCheck;
+						}
+					}
+				}
+				catch(Exception e) {
+					System.out.println(e);
+					System.out.println("Path not found. MAKE SURE THERE ARE NO SPACES. Try again.");
+				}
+				if(loop)
+				{
+					System.out.println("Seller login doesn't match records. Try again.");
+				}
+			}
 			return true;
 		}
 		return false;

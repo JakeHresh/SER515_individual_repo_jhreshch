@@ -4,7 +4,7 @@ public class ClassProductList extends ArrayList {
 
 	private ProductIterator productIterator;
 
-	private ProductIterator productIterator;
+	//private ProductIterator productIterator;
 
 	private Product[] product;
 

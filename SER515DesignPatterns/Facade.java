@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
 
 public class Facade {
 	public static final Scanner scan = new Scanner(System.in);
@@ -30,6 +32,7 @@ public class Facade {
 			System.out.println("Hello buyer!");
 			this.UserType = 0;
 			this.thePerson = new Buyer();
+			// prompt user for login credentials, then read the buyer text file to see if it matches.
 			return true;
 		}
 		if(userInput.equals("1"))
@@ -37,6 +40,7 @@ public class Facade {
 			System.out.println("Hello seller!");
 			this.UserType = 1;
 			this.thePerson = new Seller();
+			// prompt user for login credentials, then read the seller text file to see if it matches.
 			return true;
 		}
 		return false;
@@ -88,7 +92,29 @@ public class Facade {
 	}
 	//Create the product list of the entire system.
 	public void createProductList() {
-
+		this.theProductList = new ClassProductList();
+		this.theProductList.product = new ArrayList<Product>();
+		boolean loop = true;
+		while(loop)
+		{
+			System.out.println("Please provide the file path for the Product List Information. MAKE SURE THERE ARE NO SPACES.");
+			System.out.println("e.g. \"C:\\\\Users\\\\jakey\\\\Desktop\\\\ProductInfo.txt\"");
+			String userInput = scan.nextLine();
+			try {
+				File file = new File(userInput);
+				Scanner filescan = new Scanner(file);
+				while(filescan.hasNextLine())
+				{
+					this.theProductList.product.add(new Product(this.theProductList, null, filescan.nextLine()));
+				}
+				loop = false;
+			}
+			catch(Exception e) {
+				System.out.println(e);
+				System.out.println("Path not found. MAKE SURE THERE ARE NO SPACES. Try again.");
+			}
+		}
+		this.theProductList.product.forEach((p) -> System.out.println(p.ProductName));
 	}
 	/*
 	* Call this function after creating the user. Create productList by

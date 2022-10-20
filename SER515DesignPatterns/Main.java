@@ -10,5 +10,6 @@ public class Main {
         {
             login = facade.login();
         }
+        facade.createProductList();
     }
 }

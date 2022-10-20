@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class ClassProductList extends ArrayList {
 
 	private ReminderVisitor reminderVisitor;
@@ -6,7 +7,7 @@ public class ClassProductList extends ArrayList {
 
 	//private ProductIterator productIterator;
 
-	private Product[] product;
+	public ArrayList<Product> product;
 
 	public void accept(NodeVisitor visitor) {
 

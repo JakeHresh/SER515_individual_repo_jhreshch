@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Facade {
+	public static final Scanner scan = new Scanner(System.in);
 
 	private int UserType; // buyer = 0, seller = 1
 
@@ -20,6 +23,22 @@ public class Facade {
 	}
 	//Show login GUI and return the login result.
 	public boolean login() {
+		System.out.println("Are you a buyer (0) or a seller (1)?");
+		String userInput = scan.nextLine();
+		if(userInput.equals("0"))
+		{
+			System.out.println("Hello buyer!");
+			this.UserType = 0;
+			this.thePerson = new Buyer();
+			return true;
+		}
+		if(userInput.equals("1"))
+		{
+			System.out.println("Hello seller!");
+			this.UserType = 1;
+			this.thePerson = new Seller();
+			return true;
+		}
 		return false;
 	}
 	/*

@@ -198,7 +198,28 @@ public class Facade {
 	}
 	//Show the Product list in a Dialog and return the selected product.
 	public Product SelectProduct() {
-		return null;
+		// The following loop is sufficient to demonstrate that the Iterator Pattern is successfully implemented.
+		while(this.theProductList.productIterator.hasNext())
+		{
+			System.out.println(this.theProductList.productIterator.Next().ProductName);
+		}
+		this.theProductList.productIterator.MoveToHead();
+		System.out.println("What product would you like to select? (Please spell it out correctly as the products were listed)");
+		String selection = scan.nextLine();
+		boolean stop = false;
+		Product p = null;
+		while(this.theProductList.productIterator.hasNext() && !stop)
+		{
+			p = this.theProductList.productIterator.Next();
+			if(p.ProductName.equals(selection))
+			{
+				//System.out.println(p.ProductName);
+				stop = true;
+			}
+		}
+		this.theProductList.productIterator.MoveToHead();
+		this.theSelectedProduct = p;
+		return p;
 	}
 	/*
 	* This function will call the thePerson. CreateProductMenu0

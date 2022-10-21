@@ -29,6 +29,7 @@ public class Main {
             System.out.println("4. Discuss Bidding (INCOMPLETE)");
             System.out.println("5. Submit Bidding (INCOMPLETE)");
             System.out.println("6. Select Product (INCOMPLETE)"); // This will trigger the question "What product would you like to select?" and display all products. After product is selected, Product Menu will be built
+            System.out.println("7. Exit");
             String decision = scan.nextLine();
             if(decision.equals("1")){
 
@@ -46,12 +47,11 @@ public class Main {
 
             }
             if(decision.equals("6")){
-                while(facade.theProductList.productIterator.hasNext())
-                {
-
-                    System.out.println(facade.theProductList.productIterator.Next().ProductName);
-                }
-                facade.theProductList.productIterator.MoveToHead();
+                System.out.println(facade.SelectProduct().ProductName);
+            }
+            if(decision.equals("7"))
+            {
+                return;
             }
         }
     }

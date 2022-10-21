@@ -11,7 +11,7 @@ public class Facade {
 
 	private int nProductCategory; //The selected product category: 0: Meat, 1: Produce.
 
-	private ClassProductList theProductList;//The list of products of the entire system.
+	public ClassProductList theProductList;//The list of products of the entire system.
 
 	private Person thePerson;//The current user.
 
@@ -165,6 +165,7 @@ public class Facade {
 		this.theProductList = new ClassProductList();
 		this.theProductList.product = new ArrayList<Product>();
 		this.theProductList.productIterator = new ProductIterator();
+		this.theProductList.productIterator.classProductList = this.theProductList;
 		boolean loop = true;
 		while(loop)
 		{

@@ -46,7 +46,12 @@ public class Main {
 
             }
             if(decision.equals("6")){
-                
+                while(facade.theProductList.productIterator.hasNext())
+                {
+
+                    System.out.println(facade.theProductList.productIterator.Next().ProductName);
+                }
+                facade.theProductList.productIterator.MoveToHead();
             }
         }
     }

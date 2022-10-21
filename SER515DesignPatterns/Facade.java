@@ -152,7 +152,9 @@ public class Facade {
 	* Show the remind box to remind buyer of the upcoming overdue
 	trading window.*/
 	public void remind() {
-
+		Reminder rm = new Reminder();
+		ReminderVisitor r = new ReminderVisitor(rm);
+		r.visitFacade(this);
 	}
 	/*
 	* Create a user object according to the userinfoitem, the object

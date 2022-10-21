@@ -4,6 +4,11 @@ public class ReminderVisitor extends NodeVisitor {
 
 	private ClassProductList classProductList;
 
+	public ReminderVisitor(Reminder r)
+	{
+		m_Reminder = r;
+	}
+
 	public void visitProduct(Product product) {
 
 	}
@@ -13,7 +18,8 @@ public class ReminderVisitor extends NodeVisitor {
 	}
 
 	public void visitFacade(Facade facade) {
-
+		System.out.println("Visited facade data structure");
+		System.out.println(facade.nProductCategory + " is the current Product Category");
 	}
 
 }

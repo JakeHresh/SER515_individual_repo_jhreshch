@@ -23,30 +23,15 @@ public class Main {
             // Facade's Class Product List Accepts Reminder Visitor.
             // Reminder Visitor then Visits Product or Trading
             System.out.println("What would you like to do? (Select option by number)");
-            System.out.println("1. Add Trading (INCOMPLETE)");
-            System.out.println("2. View Trading (INCOMPLETE)");
-            System.out.println("3. Decide Bidding (INCOMPLETE)");
-            System.out.println("4. Discuss Bidding (INCOMPLETE)");
-            System.out.println("5. Submit Bidding (INCOMPLETE)");
-            System.out.println("6. Select Product (INCOMPLETE)"); // This will trigger the question "What product would you like to select?" and display all products. After product is selected, Product Menu will be built
-            System.out.println("7. Exit");
+            System.out.println("1. Trigger Reminder Visitor For Visiting Facade");
+            System.out.println("2. Select Product"); // This will trigger the question "What product would you like to select?" and display all products. After product is selected, Product Menu will be built
+            System.out.println("3. Exit");
             String decision = scan.nextLine();
             if(decision.equals("1")){
-
+                // The following triggers the Remind Visitor, which in this case visits the Facade data structure.
+                facade.remind();
             }
             if(decision.equals("2")){
-
-            }
-            if(decision.equals("3")){
-
-            }
-            if(decision.equals("4")){
-
-            }
-            if(decision.equals("5")){
-
-            }
-            if(decision.equals("6")){
                 System.out.println(facade.SelectProduct().ProductName);
                 // The following conditionals checking User Types demonstrates the use of the Bridge Pattern,
                 // which loads a different menu based on the User Type.
@@ -67,7 +52,7 @@ public class Main {
                     s.showMenu();
                 }
             }
-            if(decision.equals("7"))
+            if(decision.equals("3"))
             {
                 return;
             }

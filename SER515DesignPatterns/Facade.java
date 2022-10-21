@@ -5,7 +5,7 @@ import java.io.File;
 public class Facade {
 	public static final Scanner scan = new Scanner(System.in);
 
-	private int UserType; // buyer = 0, seller = 1
+	public int UserType; // buyer = 0, seller = 1
 
 	private Product theSelectedProduct; // The object that holds the currently selected product.
 
@@ -13,7 +13,7 @@ public class Facade {
 
 	public ClassProductList theProductList;//The list of products of the entire system.
 
-	private Person thePerson;//The current user.
+	public Person thePerson;//The current user.
 
 	public Facade(int userType, Product selectedProduct, int productCategory, ClassProductList classProductList, Person person)
 	{

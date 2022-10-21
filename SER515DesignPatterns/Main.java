@@ -48,6 +48,18 @@ public class Main {
             }
             if(decision.equals("6")){
                 System.out.println(facade.SelectProduct().ProductName);
+                // The following conditionals checking User Types demonstrates the use of the Bridge Pattern,
+                // which loads a different menu based on the User Type.
+                if(facade.UserType == 0)
+                {
+                    Buyer b = (Buyer)facade.thePerson;
+                    b.showMenu();
+                }
+                if(facade.UserType == 1)
+                {
+                    Seller s = (Seller)facade.thePerson;
+                    s.showMenu();
+                }
             }
             if(decision.equals("7"))
             {

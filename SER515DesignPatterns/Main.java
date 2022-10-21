@@ -50,14 +50,20 @@ public class Main {
                 System.out.println(facade.SelectProduct().ProductName);
                 // The following conditionals checking User Types demonstrates the use of the Bridge Pattern,
                 // which loads a different menu based on the User Type.
+
+                // The showMenu calls also help kick off the functionality of the Factory Pattern,
+                // which builds different menus (using print lines) based on whether the selected
+                // product is Meat or Produce.
                 if(facade.UserType == 0)
                 {
                     Buyer b = (Buyer)facade.thePerson;
+                    b.facade = facade;
                     b.showMenu();
                 }
                 if(facade.UserType == 1)
                 {
                     Seller s = (Seller)facade.thePerson;
+                    s.facade = facade;
                     s.showMenu();
                 }
             }

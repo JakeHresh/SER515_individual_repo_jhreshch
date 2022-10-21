@@ -9,7 +9,7 @@ public class Facade {
 
 	private Product theSelectedProduct; // The object that holds the currently selected product.
 
-	private int nProductCategory; //The selected product category: 0: Meat, 1: Produce.
+	public int nProductCategory; //The selected product category: 0: Meat, 1: Produce.
 
 	public ClassProductList theProductList;//The list of products of the entire system.
 
@@ -219,6 +219,14 @@ public class Facade {
 		}
 		this.theProductList.productIterator.MoveToHead();
 		this.theSelectedProduct = p;
+		if(p.ProductName.contains("Meat"))
+		{
+			nProductCategory = 0;
+		}
+		if(p.ProductName.contains("Produce"))
+		{
+			nProductCategory = 1;
+		}
 		return p;
 	}
 	/*
